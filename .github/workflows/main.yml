@@ -17,8 +17,8 @@ jobs:
       - name: Switch to Devbox shell
         run: devbox shell
 
-      - name: Check Java version
-        run: java --version
+      - name: Check Devbox Java (JDK) version
+        run: devbox info jdk22
         
       - name: Check Maven version
         run: mvn --version
