@@ -24,4 +24,4 @@ jobs:
         run: mvn --version
         
       - name: Run mvn tests
-        run: mvn test
+        run: devbox run test
