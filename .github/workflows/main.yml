@@ -14,6 +14,9 @@ jobs:
       - name: Run arbitrary commands
         run: devbox run -- echo "done!"
 
+      - name: Switch to Devbox shell
+        run: devbox shell
+
       - name: Check Java version
         run: java --version
         
