@@ -14,9 +14,6 @@ jobs:
       - name: Run arbitrary commands
         run: devbox run -- echo "done!"
 
-      - name: Switch to Devbox shell
-        run: devbox shell
-
       - name: Check Devbox Java (JDK) version
         run: devbox info jdk22
         
