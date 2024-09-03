@@ -24,20 +24,23 @@ Ensure that you have Devbox installed and configured. Devbox manages the depende
 
 ### Steps to Run
 
-1. **Clone the repository**:
+1. **Clone the repository**
    ```bash
    git clone https://github.com/eth-library/devbox-spring-demo.git
+
+2. **Navigate to the Project Directory**
+   ```bash
    cd devbox-spring-demo
    
-2. **Switch to Devbox shell**
+3. **Switch to Devbox shell**
    ```bash
    devbox shell
    
-3. **Start the webserver**
+4. **Start the webserver**
    ```bash
    mvn spring-boot:run
    
-4. **Send a request to the endpoint**
+5. **Send a request to the endpoint**
    ```bash
    curl "http://localhost:8080/greeting?name=Devbox%20Tester"
 
