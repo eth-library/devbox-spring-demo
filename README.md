@@ -28,7 +28,18 @@ Ensure that you have Devbox installed and configured. Devbox manages the depende
    ```bash
    git clone <repository-url>
    cd devbox-spring-demo
+   
+2. **Switch to Devbox shell**
+   ```bash
    devbox shell
+   
+3. **Start the webserver**
+   ```bash
+   mvn spring-boot:run
+   
+4. **Send a request to the endpoint**
+   ```bash
+   curl "http://localhost:8080/greeting?name=Devbox%20Tester"
 
 ## Custom Maven Settings
 
