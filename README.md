@@ -26,7 +26,7 @@ Ensure that you have Devbox installed and configured. Devbox manages the depende
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/eth-library/devbox-spring-demo.git
    cd devbox-spring-demo
    
 2. **Switch to Devbox shell**
