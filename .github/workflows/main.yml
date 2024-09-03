@@ -11,9 +11,6 @@ jobs:
       - name: Install devbox
         uses: jetify-com/devbox-install-action@v0.11.0
 
-      - name: Run arbitrary commands
-        run: devbox run -- echo "done!"
-
       - name: Check Devbox Java (JDK) version
         run: devbox info jdk22
         
