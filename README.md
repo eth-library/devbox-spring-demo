@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project is a demonstration of a simple Spring Boot application using Devbox to create an isolated development environment. The goal is to ensure that all dependencies and configurations are managed within the project, promoting reproducibility and consistency across different development setups.
+This project is a demonstration of a simple Spring Boot application using Devbox to create an isolated development environment. The goal is to ensure that all dependencies and configurations are managed within the project, promoting consistency across different development setups.
 
 ## Technology Stack
 
@@ -46,4 +46,4 @@ Ensure that you have Devbox installed and configured. Devbox manages the depende
 
 ## Custom Maven Settings
 
-To maintain an isolated environment, a custom `maven.config` file is provided in the `.mvn` directory. This configuration ensures that all Maven dependencies are stored locally within the project rather than in a global repository. This approach helps to keep the development environment fully isolated and reproducible, avoiding any interference from global dependencies.
+To maintain an isolated environment, a custom `maven.config` file is provided in the `.mvn` directory. This configuration ensures that all Maven dependencies are stored locally within the project rather than in a global repository. This approach helps to keep the development environment fully isolated, avoiding any interference from global dependencies.
