@@ -1,0 +1,14 @@
+{
+  "name": "Java Spring Boot Maven Project",
+  "image": "mcr.microsoft.com/vscode/devcontainers/universal:1-linux",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": [
+    "vscjava.vscode-java-pack",
+    "vscjava.vscode-maven"
+  ],
+  "forwardPorts": [8080],
+  "postCreateCommand": "mvn spring-boot:run",
+  "remoteUser": "codespace"
+}
