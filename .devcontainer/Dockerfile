@@ -16,5 +16,7 @@ COPY --chown=${DEVBOX_USER}:${DEVBOX_USER} ../devbox.lock /code/devbox.lock
 # Run devbox command to install packages based on the lock file
 RUN devbox run -- echo "Installed Packages."
 
-# Set the default command to open devbox shell and run the Spring Boot application
-CMD ["sh", "-c", ". ~/.devbox/shell && mvn spring-boot:run"]
+CMD ["devbox", "shell"]
+
+# Run the Spring Boot application server
+CMD ["mvn spring-boot:run"]
