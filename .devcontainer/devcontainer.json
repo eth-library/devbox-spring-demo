@@ -1,5 +1,5 @@
 {
-  "name": "Java Spring Boot Maven Project",
+  "name": "Spring Boot Devbox Isolated Environment Demo",
   "image": "mcr.microsoft.com/vscode/devcontainers/universal:1-linux",
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
