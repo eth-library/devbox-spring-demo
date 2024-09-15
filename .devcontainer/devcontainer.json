@@ -1,7 +1,7 @@
 {
   "name": "Spring Boot Devbox Isolated Environment Demo",
   "build": {
-    "dockerfile": "Dockerfile"
+    "dockerfile": "../Dockerfile"
   },
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
