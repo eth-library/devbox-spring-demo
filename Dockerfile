@@ -1,6 +1,9 @@
 # Using the official Devbox image as the base
 FROM jetpackio/devbox:latest
 
+# Set the DEVBOX_USER environment variable
+ENV DEVBOX_USER=devbox-user
+
 # Set up the working directory and permissions
 WORKDIR /code
 USER root:root
