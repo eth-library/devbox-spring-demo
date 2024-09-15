@@ -1,10 +1,11 @@
 {
   "name": "Spring Boot Devbox Isolated Environment Demo",
-  "image": "mcr.microsoft.com/vscode/devcontainers/universal:1-linux",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
   },
   "forwardPorts": [8080],
-  "postCreateCommand": "curl -fsSL https://get.jetify.com/devbox | bash && git clone https://github.com/eth-library/devbox-spring-demo.git && cd devbox-spring-demo && . ~/.devbox/shell && mvn spring-boot:run",
-  "remoteUser": "codespace"
+  "remoteUser": "${DEVBOX_USER}"
 }
