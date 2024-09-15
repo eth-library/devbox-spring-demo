@@ -4,13 +4,15 @@ FROM jetpackio/devbox:latest
 # Set the DEVBOX_USER environment variable
 ENV DEVBOX_USER=devbox-user
 
+# Ensure we are using root to perform operations that require elevated permissions
+USER root:root
+
 # Create a new user 'devbox-user' and ensure the user has appropriate permissions on the working directory
 RUN groupadd -r ${DEVBOX_USER} && \
-    useradd -r -g ${DEVBOX_USER} -d /code -s /bin/bash ${DEVBOX_USER} && \
+    useradd -r -g ${DEVBOX_USER} -d /code -s /bin/bash ${DEVBOX_USER}
 
 # Set up the working directory and permissions
 WORKDIR /code
-USER root:root
 RUN mkdir -p /code && chown ${DEVBOX_USER}:${DEVBOX_USER} /code
 
 # Switch to the devbox user
