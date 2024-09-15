@@ -16,9 +16,5 @@ COPY --chown=${DEVBOX_USER}:${DEVBOX_USER} ../devbox.lock /code/devbox.lock
 # Run devbox command to install packages based on the lock file
 RUN devbox run -- echo "Installed Packages."
 
-# Clone the specific repository and change directory into it
-RUN git clone https://github.com/eth-library/devbox-spring-demo.git /code/devbox-spring-demo
-WORKDIR /code/devbox-spring-demo
-
 # Set the default command to open devbox shell and run the Spring Boot application
 CMD ["sh", "-c", ". ~/.devbox/shell && mvn spring-boot:run"]
