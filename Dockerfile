@@ -1,16 +1,26 @@
-# Using the official Devbox image as the base
-FROM jetpackio/devbox:latest
+# Use Ubuntu as the base image
+FROM ubuntu:24.04
 
-# Set up the working directory and permissions
-WORKDIR /code
-RUN mkdir -p /code && chown ${DEVBOX_USER}:${DEVBOX_USER} /code
+# Install most essential tools (curl and ca-certificates)
+RUN apt-get update && \
+    apt-get install -y \
+    curl \
+    ca-certificates \
+    --no-install-recommends && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-# Switch to the devbox user
-USER ${DEVBOX_USER}:${DEVBOX_USER}
+# Install Nix Package Manager using the Determinate Systems Nix installer
+RUN curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install linux \
+  --extra-conf "sandbox = false" \
+  --init none \
+  --no-confirm
 
-# Copy configuration files necessary for Devbox
-COPY --chown=${DEVBOX_USER}:${DEVBOX_USER} devbox.json /code/devbox.json
-COPY --chown=${DEVBOX_USER}:${DEVBOX_USER} devbox.lock /code/devbox.lock
+# Set PATH environment variable to include Nix binaries
+ENV PATH="${PATH}:/nix/var/nix/profiles/default/bin"
 
-# Run devbox command to install packages based on the lock file
-RUN devbox run -- echo "Installed Packages."
+# Launch systemd
+CMD [ "/bin/systemd" ]
+
+# Install Devbox using Nix
+RUN nix profile install nixpkgs#devbox
