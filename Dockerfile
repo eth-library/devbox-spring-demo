@@ -26,3 +26,6 @@ CMD [ "/bin/systemd" ]
 
 # Install Devbox using Nix
 RUN nix profile install nixpkgs#devbox
+
+# Expose port 8080 to handle requests to web server
+EXPOSE 8080
