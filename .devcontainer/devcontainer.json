@@ -5,5 +5,5 @@
   },
   "forwardPorts": [8080],
   "remoteUser": "devbox",
-  "postStartCommand": "bash -c 'source ~/.devbox/shell && mvn spring-boot:run'"
+  "postStartCommand": "devbox run start"
 }
