@@ -11,6 +11,12 @@
     "scripts": {
       "test": [
         "mvn test"
+      ],
+      "start": [
+        "mvn spring-boot:start"
+      ],
+      "stop": [
+        "mvn spring-boot:stop"
       ]
     }
   }
