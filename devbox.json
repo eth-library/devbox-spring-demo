@@ -9,6 +9,9 @@
       "echo 'Welcome to devbox!' > /dev/null"
     ],
     "scripts": {
+      "compile": [
+        "mvn compile"
+      ],
       "test": [
         "mvn test"
       ],
