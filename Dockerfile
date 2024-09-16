@@ -26,10 +26,3 @@ CMD [ "/bin/systemd" ]
 
 # Install Devbox using Nix
 RUN nix profile install nixpkgs#devbox
-
-# Create non-root user and group
-RUN groupadd -g 1001 devbox && \
-    useradd -g 1001 -u 1001 devbox
-
-# Switch to non-root user
-USER devbox
