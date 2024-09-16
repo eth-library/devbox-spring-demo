@@ -5,5 +5,6 @@
   },
   "forwardPorts": [8080],
   "remoteUser": "devbox",
+  "postCreateCommand": "devbox run compile",
   "postStartCommand": "devbox run start"
 }
