@@ -1,13 +1,15 @@
 # Use Ubuntu as the base image
 FROM ubuntu:24.04
 
-# Install most essential tools (curl and ca-certificates)
+# Update package list and install essential tools (curl, ca-certificates)
 RUN apt-get update && \
-    apt-get install -y \
+    # Install packages without prompts and recommendations
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     curl \
-    ca-certificates \
-    --no-install-recommends && \
+    ca-certificates && \
+    # Clean up apt cache to reduce image size
     apt-get clean && \
+    # Delete downloaded package lists
     rm -rf /var/lib/apt/lists/*
 
 # Install Nix Package Manager using the Determinate Systems Nix installer
