@@ -1,0 +1,9 @@
+{
+  "name": "Spring Boot Devbox Isolated Environment Demo",
+  "build": {
+    "dockerfile": "../Dockerfile"
+  },
+  "forwardPorts": [8080],
+  "remoteUser": "root",
+  "postCreateCommand": "devbox run compile"
+}

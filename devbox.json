@@ -9,8 +9,17 @@
       "echo 'Welcome to devbox!' > /dev/null"
     ],
     "scripts": {
+      "compile": [
+        "mvn compile"
+      ],
       "test": [
         "mvn test"
+      ],
+      "start": [
+        "mvn spring-boot:start"
+      ],
+      "stop": [
+        "mvn spring-boot:stop"
       ]
     }
   }
