@@ -1,6 +1,9 @@
 name: Testing with devbox
 
-on: push
+on:
+  push: # Trigger on any push to any branch
+  schedule:
+    - cron: '45 23 * * *' # Run daily at 23:45 UTC
 
 jobs:
   test:
@@ -10,6 +13,8 @@ jobs:
 
       - name: Install devbox
         uses: jetify-com/devbox-install-action@v0.11.0
+        with:
+          enable-cache: 'true' # Cache Nix store
 
       - name: Check Devbox Java (JDK) version
         run: devbox info jdk22
