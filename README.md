@@ -6,7 +6,7 @@ This project is a demonstration of a simple Spring Boot application using Devbox
 
 ## Technology Stack
 
-- **Spring Boot Version**: `3.4.1`
+- **Spring Boot Version**: `3.4.3`
 - **Java Version**: `22`
 
 ## Dependencies
