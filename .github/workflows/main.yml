@@ -19,7 +19,7 @@ jobs:
           enable-cache: 'true' # Cache Nix store
 
       - name: Check Devbox Java (JDK) version
-        run: devbox info jdk22
+        run: devbox run -- java -version
         
       - name: Check Devbox Maven version
         run: devbox info maven
