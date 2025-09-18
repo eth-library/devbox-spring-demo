@@ -1,39 +1,43 @@
 {
   "lockfile_version": "1",
   "packages": {
-    "jdk22@latest": {
-      "last_modified": "2024-06-12T20:55:33Z",
-      "resolved": "github:NixOS/nixpkgs/a9858885e197f984d92d7fe64e9fff6b2e488d40#jdk22",
+    "github:NixOS/nixpkgs/nixpkgs-unstable": {
+      "last_modified": "2025-09-16T13:27:06Z",
+      "resolved": "github:NixOS/nixpkgs/08b8f92ac6354983f5382124fef6006cade4a1c1?lastModified=1758029226&narHash=sha256-TjqVmbpoCqWywY9xIZLTf6ANFvDCXdctCjoYuYPYdMI%3D"
+    },
+    "jdk24@latest": {
+      "last_modified": "2025-05-06T16:34:47Z",
+      "resolved": "github:NixOS/nixpkgs/f90d0af5db814e870b2ad1aebc4e8924a30c53dd#jdk24",
       "source": "devbox-search",
-      "version": "22-ga",
+      "version": "24+36",
       "systems": {
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/axzs3dcjxf4xb5r4rh0j08nmya00vbwz-openjdk-22-ga",
+              "path": "/nix/store/sakg57y00gfjjyibiqsx97qnga74irsc-openjdk-24+36",
               "default": true
             },
             {
               "name": "debug",
-              "path": "/nix/store/3z268s0kxln2h03fcp9kc063mp2vx5ib-openjdk-22-ga-debug"
+              "path": "/nix/store/jiwpl0kkyl28snfhfp71pn0d6jbl03y8-openjdk-24+36-debug"
             }
           ],
-          "store_path": "/nix/store/axzs3dcjxf4xb5r4rh0j08nmya00vbwz-openjdk-22-ga"
+          "store_path": "/nix/store/sakg57y00gfjjyibiqsx97qnga74irsc-openjdk-24+36"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/kls4wg8vhm452miqppmsmwc9gbfdsvis-openjdk-22-ga",
+              "path": "/nix/store/sybwyss36hi9lq1c8nd2zyii25pv3z2i-openjdk-24+36",
               "default": true
             },
             {
               "name": "debug",
-              "path": "/nix/store/s0mgmqgdra3lh0gbpcljhxrsz5vxpksj-openjdk-22-ga-debug"
+              "path": "/nix/store/if2h46f0zlm13yrhdy47fsbans0fhxb3-openjdk-24+36-debug"
             }
           ],
-          "store_path": "/nix/store/kls4wg8vhm452miqppmsmwc9gbfdsvis-openjdk-22-ga"
+          "store_path": "/nix/store/sybwyss36hi9lq1c8nd2zyii25pv3z2i-openjdk-24+36"
         }
       }
     },
