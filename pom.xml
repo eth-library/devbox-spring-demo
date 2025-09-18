@@ -14,7 +14,7 @@
 	<name>Spring Boot Devbox Isolated Environment Demo</name>
 	<description>A demonstration of a simple Spring Boot project using Devbox for an isolated development environment.</description>
 	<properties>
-		<java.version>22</java.version>
+		<java.version>24</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
