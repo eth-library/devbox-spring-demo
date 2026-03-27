@@ -1,0 +1,62 @@
+name: Sync versions in README
+
+on:
+  pull_request:
+    paths:
+      - 'pom.xml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract versions from pom.xml
+        id: versions
+        run: |
+          SPRING_BOOT_VERSION=$(sed -n '/<parent>/,/<\/parent>/s/.*<version>\([^<]*\)<\/version>.*/\1/p' pom.xml)
+          JAVA_VERSION=$(sed -n 's/.*<java.version>\([^<]*\)<\/java.version>.*/\1/p' pom.xml)
+          echo "spring_boot=${SPRING_BOOT_VERSION}" >> "$GITHUB_OUTPUT"
+          echo "java=${JAVA_VERSION}" >> "$GITHUB_OUTPUT"
+          echo "Spring Boot: ${SPRING_BOOT_VERSION}, Java: ${JAVA_VERSION}"
+
+      - name: Extract current versions from README
+        id: previous_versions
+        run: |
+          PREVIOUS_SPRING_BOOT_VERSION=$(grep -oP '<!-- v:spring-boot -->`\K[^`]*' README.md)
+          PREVIOUS_JAVA_VERSION=$(grep -oP '<!-- v:java -->`\K[^`]*' README.md)
+          echo "spring_boot=${PREVIOUS_SPRING_BOOT_VERSION}" >> "$GITHUB_OUTPUT"
+          echo "java=${PREVIOUS_JAVA_VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Update Spring Boot version in README
+        if: steps.previous_versions.outputs.spring_boot != steps.versions.outputs.spring_boot
+        env:
+          SPRING_BOOT_VERSION: ${{ steps.versions.outputs.spring_boot }}
+        run: |
+          sed -i "s/<!-- v:spring-boot -->\`[^\`]*\`<!-- \/v -->/<!-- v:spring-boot -->\`${SPRING_BOOT_VERSION}\`<!-- \/v -->/" README.md
+          git add README.md
+          git commit -m "docs: update Spring Boot to ${SPRING_BOOT_VERSION} in README"
+
+      - name: Update Java version in README
+        if: steps.previous_versions.outputs.java != steps.versions.outputs.java
+        env:
+          JAVA_VERSION: ${{ steps.versions.outputs.java }}
+        run: |
+          sed -i "s/<!-- v:java -->\`[^\`]*\`<!-- \/v -->/<!-- v:java -->\`${JAVA_VERSION}\`<!-- \/v -->/" README.md
+          git add README.md
+          git commit -m "docs: update Java to ${JAVA_VERSION} in README"
+
+      - name: Push changes
+        if: steps.previous_versions.outputs.spring_boot != steps.versions.outputs.spring_boot || steps.previous_versions.outputs.java != steps.versions.outputs.java
+        run: git push
