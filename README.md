@@ -1,3 +1,8 @@
+> [!NOTE]
+> **This project is archived and no longer maintained.**
+>
+> It stays available read-only as a reference example. Dependency updates have stopped, so the versions below reflect the state at archival — expect them to fall behind. Feel free to fork it if you want to build on it.
+
 # Spring Boot Devbox Isolated Environment Demo
 
 ## Project Overview
